@@ -21,7 +21,7 @@
                 <i class="mdi mdi-currency-usd text-white icon-md"></i>
               </div>
               <div class="text-wrapper pl-1">
-                <h3 class="mdc-typography--display1 font-weight-bold mb-1">${{fund.total}}</h3>
+                <h3 class="mdc-typography--display1 font-weight-bold mb-1">S${{fund.total | currency}}</h3>
                 <p class="font-weight-normal mb-0 mt-0">Total Fund</p>
               </div>
             </div>
@@ -43,7 +43,7 @@
                 <i class="mdi mdi-check-circle text-white icon-md"></i>
               </div>
               <div class="text-wrapper pl-1">
-                <h3 class="mdc-typography--display1 font-weight-bold mb-1">${{availableFund}}</h3>
+                <h3 class="mdc-typography--display1 font-weight-bold mb-1">S${{availableFund | currency}}</h3>
                 <p class="font-weight-normal mb-0 mt-0">Available Fund</p>
               </div>
             </div>

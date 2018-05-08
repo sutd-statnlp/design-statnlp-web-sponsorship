@@ -7,6 +7,10 @@ import router from './router'
 import './import-css'
 import './import-js'
 
+import filter from './filter'
+
+Vue.use(filter)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

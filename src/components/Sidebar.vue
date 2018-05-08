@@ -9,19 +9,19 @@
         <div class="mdc-list-group">
           <nav class="mdc-list mdc-drawer-menu">
             <div class="mdc-list-item mdc-drawer-item">
-              <router-link class="mdc-drawer-link active" to="/">
+              <router-link class="mdc-drawer-link" :class="currentPath == '/' ? 'active':''" to="/">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">desktop_mac</i>
                 Summary
               </router-link>
             </div>
             <div class="mdc-list-item mdc-drawer-item">
-              <router-link class="mdc-drawer-link" to="funding">
+              <router-link class="mdc-drawer-link" :class="currentPath == '/funding' ? 'active':''" to="/funding">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">attach_money</i>
                 Funding
               </router-link>
             </div>
             <div class="mdc-list-item mdc-drawer-item">
-              <router-link class="mdc-drawer-link" to="sponsors">
+              <router-link class="mdc-drawer-link" :class="currentPath == '/sponsors' ? 'active':''" to="/sponsors">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">group</i>
                 Sponsors
               </router-link>
@@ -37,6 +37,11 @@ export default {
   name: 'Sidebar',
   data () {
     return {
+    }
+  },
+  computed: {
+    currentPath () {
+      return this.$route.path
     }
   }
 }
