@@ -12,7 +12,7 @@
                 <tr>
                   <th class="text-left">ID</th>
                   <th>Name</th>
-                  <th>Total Amount (S$)</th>
+                  <th>Total Amount</th>
                   <th>Type</th>
                   <th>Website</th>
                 </tr>
@@ -21,7 +21,7 @@
                 <tr v-for="(item, index) in sponsors" :key="index">
                   <td class="text-left">{{item.id}}</td>
                   <td>{{item.name}}</td>
-                  <td>{{item.totalAmount | currency}}</td>
+                  <td>${{item.totalAmount | currency}}</td>
                   <td>{{item.type}}</td>
                   <td>
                     <a class="col mdc-button" data-mdc-auto-init="MDCRipple" target="_blank" :href="item.website">

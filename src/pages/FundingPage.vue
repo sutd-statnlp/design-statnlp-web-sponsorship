@@ -11,18 +11,20 @@
               <thead>
                 <tr>
                   <th class="text-left">ID</th>
+                  <th>Description</th>
                   <th>Date</th>
-                  <th>Amount (S$)</th>
+                  <th>Amount</th>
                   <th>Sponsor</th>
                   <th>Used</th>
-                  <th>Details</th>
+                  <th>Purpose</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="(item, index) in funds" :key="index">
                   <td class="text-left">{{item.id}}</td>
+                  <td>{{item.description}}</td>
                   <td>{{item.date}}</td>
-                  <td>{{item.amount | currency}}</td>
+                  <td>${{item.amount | currency}}</td>
                   <td>{{item.sponsor}}</td>
                   <td>{{item.used ? 'yes' : 'no'}}</td>
                   <td>
