@@ -21,8 +21,8 @@
                 <i class="mdi mdi-currency-usd text-white icon-md"></i>
               </div>
               <div class="text-wrapper pl-1">
-                <h3 class="mdc-typography--display1 font-weight-bold mb-1">$10800</h3>
-                <p class="font-weight-normal mb-0 mt-0">Total Funds</p>
+                <h3 class="mdc-typography--display1 font-weight-bold mb-1">${{fund.total}}</h3>
+                <p class="font-weight-normal mb-0 mt-0">Total Fund</p>
               </div>
             </div>
           </div>
@@ -43,8 +43,8 @@
                 <i class="mdi mdi-check-circle text-white icon-md"></i>
               </div>
               <div class="text-wrapper pl-1">
-                <h3 class="mdc-typography--display1 font-weight-bold mb-1">$6800</h3>
-                <p class="font-weight-normal mb-0 mt-0">Available Funds</p>
+                <h3 class="mdc-typography--display1 font-weight-bold mb-1">${{availableFund}}</h3>
+                <p class="font-weight-normal mb-0 mt-0">Available Fund</p>
               </div>
             </div>
           </div>
@@ -56,7 +56,7 @@
           <div class="mdc-layout-grid__inner flex-grow-1">
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3"></div>
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6 d-flex align-item-center flex-column">
-              <h2 class="mdc-card__title mdc-card__title--large text-center mt-2 mb-2">Time, Practice</h2>
+              <h2 class="mdc-card__title mdc-card__title--large text-center mt-2 mb-2">Fund Usage</h2>
               <div id="currentBalanceCircle" class="w-100"></div>
             </div>
           </div>
@@ -72,11 +72,15 @@ export default {
   name: 'HomePage',
   data () {
     return {
-      bar: null
+      bar: null,
+      fund: {
+        total: 10800,
+        used: 4482
+      }
     }
   },
   methods: {
-    showFundsUsage (value) {
+    showFundUsage (value) {
       if (this.bar) {
         this.bar.animate(value)
       }
@@ -106,7 +110,7 @@ export default {
           if (value === 0) {
             circle.setText('')
           } else {
-            circle.setText(value)
+            circle.setText(value + '%')
           }
         }
       })
@@ -116,7 +120,17 @@ export default {
   },
   mounted () {
     this.createProgressBar()
-    this.showFundsUsage(0.8)
+
+    let percent = this.fundUsagePercentage
+    this.showFundUsage(percent)
+  },
+  computed: {
+    availableFund () {
+      return this.fund.total - this.fund.used
+    },
+    fundUsagePercentage () {
+      return this.fund.used / this.fund.total
+    }
   }
 }
 </script>
