@@ -1,14 +1,15 @@
 <template>
-    <footer>
-      <div class="mdc-layout-grid">
-        <div class="mdc-layout-grid__inner">
-          <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12 justify-content-center">
-            <span class="text-muted">Copyright © 2018
-              <a class="text-green" href="https://www.statnlp.org/" target="_blank">STATNLP</a>. All rights reserved.</span>
+    <div class="m-footer">
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 mt-3 mt-lg-0 text-center">
+              Copyright © 2018 <a href="http://www.statnlp.org">STATNLP</a>. All rights reserved.
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
 </template>
 
 <script>
@@ -20,9 +21,6 @@ export default {
   },
   mounted () {
     let urls = [
-      './static/js/misc.js',
-      './static/js/material.js',
-      './static/js/dashboard.js'
     ]
     urls.forEach(url => {
       let script = document.createElement('script')

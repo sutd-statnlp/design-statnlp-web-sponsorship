@@ -11,12 +11,6 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "chart.js": "2.6.0",
-    "del": "2.2.2",
-    "jquery": "3.2.1",
-    "material-components-web": "^0.27.0",
-    "mdi": "2.0.46",
-    "progressbar.js": "1.0.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

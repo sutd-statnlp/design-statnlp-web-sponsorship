@@ -1,39 +1,56 @@
 <template>
-  <div class="m-fund">
-    <div class="mdc-layout-grid">
-      <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
-          <div class="mdc-card table-responsive">
-            <div class="table-heading px-2 px-1 border-bottom">
-              <h1 class="mdc-card__title mdc-card__title--large">Funding</h1>
-            </div>
-            <table class="table table-hoverable">
-              <thead>
-                <tr>
-                  <th class="text-left">ID</th>
-                  <th>Date</th>
-                  <th>Amount (S$)</th>
-                  <th>Sponsor</th>
-                  <th>Used</th>
-                  <th>Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(item, index) in funds" :key="index">
-                  <td class="text-left">{{item.id}}</td>
-                  <td>{{item.date}}</td>
-                  <td>{{item.amount | currency}}</td>
-                  <td>{{item.sponsor}}</td>
-                  <td>{{item.used ? 'yes' : 'no'}}</td>
-                  <td>
-                    <router-link :to="'/funding/' + item.id" class="col mdc-button" data-mdc-auto-init="MDCRipple">
-                      <i class="mdi mdi-eye text-blue"></i>
-                    </router-link>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+  <div class="container">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Funding Transactions</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table card-table table-vcenter text-nowrap">
+            <thead>
+              <tr>
+                <th class="w-1">ID</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th class="text-center">Percentage</th>
+                <th>Usage</th>
+                <th>Sponsor</th>
+                <th class="text-center">Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, index) in funds" :key="index">
+                <td><span class="text-muted">{{item.id}}</span></td>
+                <td>{{item.description}}</td>
+                <td>
+                  {{item.date}}
+                </td>
+                <td>
+                  ${{item.amount | currency}}
+                </td>
+                <td class="text-center">
+                  <CircleProgress :percent="item.amount/fund.total*100 | limit(2)" :percentValue="item.amount/fund.total"/>
+                </td>
+                <td>
+                  <span v-if="item.used">
+                    <span class="status-icon bg-secondary"></span> Used
+                  </span>
+                  <span v-if="!item.used">
+                    <span class="status-icon bg-success"></span> Available
+                  </span>
+                </td>
+                <td>
+                  {{item.sponsor}}
+                </td>
+                <td class="text-center">
+                  <router-link class="icon" :to="'/funding/' + item.id">
+                    <i class="fe fe-eye"></i>
+                  </router-link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -41,10 +58,19 @@
 </template>
 
 <script>
+import CircleProgress from '@/components/CircleProgress'
+
 export default {
+  components: {
+    CircleProgress
+  },
   name: 'FundingPage',
   data () {
     return {
+      fund: {
+        total: 10800,
+        used: 4482
+      },
       funds: [
         {
           id: 271392321,

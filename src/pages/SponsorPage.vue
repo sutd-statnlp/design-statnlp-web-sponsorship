@@ -1,37 +1,43 @@
 <template>
-  <div class="m-fund">
-    <div class="mdc-layout-grid">
-      <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
-          <div class="mdc-card table-responsive">
-            <div class="table-heading px-2 px-1 border-bottom">
-              <h1 class="mdc-card__title mdc-card__title--large">Sponsors</h1>
-            </div>
-            <table class="table table-hoverable">
-              <thead>
-                <tr>
-                  <th class="text-left">ID</th>
-                  <th>Name</th>
-                  <th>Total Amount (S$)</th>
-                  <th>Type</th>
-                  <th>Website</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(item, index) in sponsors" :key="index">
-                  <td class="text-left">{{item.id}}</td>
-                  <td>{{item.name}}</td>
-                  <td>{{item.totalAmount | currency}}</td>
-                  <td>{{item.type}}</td>
-                  <td>
-                    <a class="col mdc-button" data-mdc-auto-init="MDCRipple" target="_blank" :href="item.website">
-                      <i class="mdi mdi-web text-blue"></i>
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+  <div class="container">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Sponsors</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table card-table table-vcenter text-nowrap">
+            <thead>
+              <tr>
+                <th class="w-1">ID</th>
+                <th>Name</th>
+                <th>Total Amount</th>
+                <th class="text-center">Percentage</th>
+                <th>Type</th>
+                <th class="text-center">Website</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, index) in sponsors" :key="index">
+                <td><span class="text-muted">{{item.id}}</span></td>
+                <td>{{item.name}}</td>
+                <td>
+                  ${{item.totalAmount | currency}}
+                </td>
+                <td class="text-center">
+                  <CircleProgress :percent="item.totalAmount/fund.total*100 | limit(2)" :percentValue="item.totalAmount/fund.total"/>
+                </td>
+                <td>
+                  <span class="badge" :class="item.type == 'Gold' ? 'badge-warning' : 'badge-default'">{{item.type}}</span>
+                </td>
+                <td class="text-center">
+                  <a class="icon" target="_blank" :href="item.website">
+                    <i class="fe fe-globe"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -39,10 +45,19 @@
 </template>
 
 <script>
+import CircleProgress from '@/components/CircleProgress'
+
 export default {
+  components: {
+    CircleProgress
+  },
   name: 'FundingPage',
   data () {
     return {
+      fund: {
+        total: 10800,
+        used: 4482
+      },
       sponsors: [
         {
           id: 271392321,

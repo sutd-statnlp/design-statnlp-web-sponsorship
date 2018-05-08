@@ -6,8 +6,7 @@ module.exports = {
     parser: 'babel-eslint'
   },
   globals: {
-    ProgressBar: true,
-    currentBalanceCircle: true
+    tabler: true
   },
   env: {
     browser: true,
