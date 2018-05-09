@@ -16,9 +16,9 @@
                 </span>
               </a>
               <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                <a class="dropdown-item" href="#">
+                <router-link class="dropdown-item" to="/login">
                   <i class="dropdown-icon fe fe-log-out"></i> Sign out
-                </a>
+                </router-link>
               </div>
             </div>
           </div>
