@@ -32,8 +32,8 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-3 ml-auto">
-            <form class="input-icon my-3 my-lg-0">
-              <input type="search" class="form-control header-search" placeholder="Search" tabindex="1">
+            <form class="input-icon my-3 my-lg-0" v-on:submit.prevent="submitSearch">
+              <input id="input-search" type="search" class="form-control header-search" placeholder="Search" tabindex="1" :disabled="currentPath == '/'">
               <div class="input-icon-addon">
                 <i class="fe fe-search"></i>
               </div>
@@ -70,6 +70,11 @@ export default {
   computed: {
     currentPath () {
       return this.$route.path
+    }
+  },
+  methods: {
+    submitSearch () {
+
     }
   }
 }

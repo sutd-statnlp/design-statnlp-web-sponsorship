@@ -6,7 +6,7 @@
           <h3 class="card-title">Sponsors</h3>
         </div>
         <div class="table-responsive">
-          <table class="table card-table table-vcenter text-nowrap">
+          <table id="tbl-sponsor" class="table card-table table-vcenter text-nowrap">
             <thead>
               <tr>
                 <th class="w-1">ID</th>
@@ -89,6 +89,17 @@ export default {
         }
       ]
     }
+  },
+  mounted () {
+    let table = $('#tbl-sponsor').DataTable({
+      info: false,
+      paging: false,
+      searching: true,
+      dom: 't'
+    })
+    $('#input-search').keyup(function () {
+      table.search($(this).val()).draw()
+    })
   }
 }
 </script>

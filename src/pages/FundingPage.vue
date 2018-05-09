@@ -6,7 +6,7 @@
           <h3 class="card-title">Funding Transactions</h3>
         </div>
         <div class="table-responsive">
-          <table class="table card-table table-vcenter text-nowrap">
+          <table id="tbl-funding" class="table card-table table-vcenter text-nowrap">
             <thead>
               <tr>
                 <th class="w-1">ID</th>
@@ -44,9 +44,9 @@
                   {{item.sponsor}}
                 </td>
                 <td class="text-center">
-                  <router-link class="icon" :to="'/funding/' + item.id">
+                  <a class="icon" @click="showPurpose(item.purpose)" data-toggle="modal" data-target="#mPurposeDialog">
                     <i class="fe fe-eye"></i>
-                  </router-link>
+                  </a>
                 </td>
               </tr>
             </tbody>
@@ -54,15 +54,18 @@
         </div>
       </div>
     </div>
+    <PurposeDialog :purpose="chosenPurpose"/>
   </div>
 </template>
 
 <script>
 import CircleProgress from '@/components/CircleProgress'
+import PurposeDialog from '@/components/PurposeDialog'
 
 export default {
   components: {
-    CircleProgress
+    CircleProgress,
+    PurposeDialog
   },
   name: 'FundingPage',
   data () {
@@ -106,8 +109,25 @@ export default {
           sponsor: 'SGInnovate',
           purpose: 'Support for Scalable Models for Deep Semantic Information Processing'
         }
-      ]
+      ],
+      chosenPurpose: ''
     }
+  },
+  methods: {
+    showPurpose (purpose) {
+      this.chosenPurpose = purpose
+    }
+  },
+  mounted () {
+    let table = $('#tbl-funding').DataTable({
+      info: false,
+      paging: false,
+      searching: true,
+      dom: 't'
+    })
+    $('#input-search').keyup(function () {
+      table.search($(this).val()).draw()
+    })
   }
 }
 </script>
