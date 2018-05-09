@@ -3,20 +3,19 @@
     <div class="row">
       <div class="col col-login mx-auto">
         <div class="text-center mb-6">
-          <img src="/static/brand/tabler.svg" class="h-6" alt="">
         </div>
-        <form class="card" action="" method="post" v-on:submit.prevent="submitLogin">
+        <form class="card" method="post" v-on:submit.prevent="submitLogin">
           <div class="card-body p-6">
             <div class="card-title">Login to your account</div>
             <div class="form-group">
               <label class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
             <div class="form-group">
               <label class="form-label">
                 Password
               </label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
             </div>
             <div class="form-group">
               <label class="custom-control custom-checkbox">
