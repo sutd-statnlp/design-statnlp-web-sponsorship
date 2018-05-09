@@ -10,6 +10,7 @@ Dashboard UI
  */
 :root {
   --blue: #467fcf;
+  --blue-dark: #1074AF;
   --indigo: #6574cd;
   --purple: #a55eea;
   --pink: #f66d9b;
@@ -9839,7 +9840,7 @@ a.text-dark:hover, a.text-dark:focus {
   .table, .text-wrap table {
     border-collapse: collapse !important;
   }
-  
+
   .table td,
   .text-wrap table td, .table th, .text-wrap table th {
     background-color: #fff !important;
