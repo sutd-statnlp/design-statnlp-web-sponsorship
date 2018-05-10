@@ -2,7 +2,7 @@
   <div class="m-home">
   <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-8">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-12-mobile">
         <div class="mdc-layout-grid__inner">
           <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
             <div class="mdc-card py-3 pl-2 d-flex flex-row align-item-center">
@@ -51,7 +51,7 @@
 
         </div>
       </div>
-      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4">
+      <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-12-mobile">
         <div class="mdc-card d-flex flex-column">
           <div class="mdc-layout-grid__inner flex-grow-1">
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3"></div>

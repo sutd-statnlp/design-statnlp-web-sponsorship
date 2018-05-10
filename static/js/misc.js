@@ -11,9 +11,24 @@
     var drawerEl = document.querySelector('.mdc-persistent-drawer');
     var MDCPersistentDrawer = mdc.drawer.MDCPersistentDrawer;
     var drawer = new MDCPersistentDrawer(drawerEl);
-    document.querySelector('.menu-toggler').addEventListener('click', function() {
-      drawer.open = !drawer.open;
+    document.querySelector('.menu-toggler').addEventListener('click', toggleDrawer);
+
+    if (window.matchMedia('(max-width: 768px)').matches)
+    {
+      $('.mdc-list-item a').click(toggleDrawer);
+    }
+    $(window).on('resize', function () {
+      if (window.matchMedia('(max-width: 768px)').matches)
+      {
+        $('.mdc-list-item a').click(toggleDrawer);
+      } else {
+        $('.mdc-list-item a').unbind('click');
+      }
     });
+    function toggleDrawer() {
+      drawer.open = !drawer.open;
+      $(".body-wrapper .page-wrapper .content-wrapper").toggleClass("drawer-minimized");
+    }
 
     //Add active class to nav-link based on url dynamically
     //Active class can be hard coded directly in html file also as required
@@ -39,8 +54,5 @@
       }
     })
 
-    $(".mdc-toolbar__menu-icon").on("click", function(){
-      $(".body-wrapper .page-wrapper .content-wrapper").toggleClass("drawer-minimized");
-    });
   });
 })(jQuery);

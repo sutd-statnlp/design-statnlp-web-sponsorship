@@ -1,5 +1,5 @@
 <template>
-    <aside class="mdc-persistent-drawer mdc-persistent-drawer--open m-sidebar">
+    <aside class="mdc-persistent-drawer m-sidebar">
       <nav class="mdc-persistent-drawer__drawer">
         <div class="mdc-persistent-drawer__toolbar-spacer">
           <a href="/" class="brand-logo">
@@ -43,6 +43,8 @@ export default {
     currentPath () {
       return this.$route.path
     }
+  },
+  mounted () {
   }
 }
 </script>

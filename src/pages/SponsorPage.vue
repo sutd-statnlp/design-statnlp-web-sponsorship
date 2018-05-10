@@ -3,11 +3,11 @@
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
-          <div class="mdc-card table-responsive">
+          <div class="mdc-card">
             <div class="table-heading px-2 px-1 border-bottom">
               <h1 class="mdc-card__title mdc-card__title--large">Sponsors</h1>
             </div>
-            <table class="table table-hoverable">
+            <table class="table table-hoverable table-responsive-md">
               <thead>
                 <tr>
                   <th class="text-left">ID</th>

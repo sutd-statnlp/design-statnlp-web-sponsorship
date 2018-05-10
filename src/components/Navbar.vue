@@ -2,7 +2,7 @@
     <header class="mdc-toolbar mdc-elevation--z4 mdc-toolbar--fixed">
       <div class="mdc-toolbar__row">
         <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-          <a href="#" class="menu-toggler material-icons mdc-toolbar__menu-icon">menu</a>
+          <a id="m-menu-toggle" href="#" class="menu-toggler material-icons mdc-toolbar__menu-icon">menu</a>
           <span class="mdc-toolbar__input">
             <div class="mdc-text-field">
               <input type="text" class="mdc-text-field__input" id="css-only-text-field-box" placeholder="Search">
@@ -10,6 +10,7 @@
           </span>
         </section>
         <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
+
           <div class="mdc-menu-anchor mr-1">
             <a href="#" class="mdc-toolbar__icon toggle mdc-ripple-surface" data-toggle="dropdown" toggle-dropdown="logout-menu" data-mdc-auto-init="MDCRipple">
               <i class="material-icons">person</i>
