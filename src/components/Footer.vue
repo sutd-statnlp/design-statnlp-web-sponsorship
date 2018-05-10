@@ -21,6 +21,7 @@ export default {
   },
   mounted () {
     let urls = [
+      './static/js/core.js'
     ]
     urls.forEach(url => {
       let script = document.createElement('script')
