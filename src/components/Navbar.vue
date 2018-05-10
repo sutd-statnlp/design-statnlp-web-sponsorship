@@ -66,6 +66,9 @@ export default {
     }
   },
   mounted () {
+    $('.nav li a').on('click', function () {
+      $('.collapse').collapse('hide')
+    })
   },
   computed: {
     currentPath () {
