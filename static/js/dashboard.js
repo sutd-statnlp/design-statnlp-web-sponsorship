@@ -1,28 +1,28 @@
-require.config({
-shim: {
-'bootstrap': ['jquery'],
-'sparkline': ['jquery'],
-'tablesorter': ['jquery'],
-'vector-map': ['jquery'],
-'vector-map-de': ['vector-map', 'jquery'],
-'vector-map-world': ['vector-map', 'jquery'],
-'jquery-datatable': ['jquery'],
-'core': ['bootstrap', 'jquery','circle-progress','jquery-datatable'],
-},
-paths: {
-'core': 'static/js/core',
-'jquery': 'static/js/vendors/jquery-3.2.1.min',
-'bootstrap': 'static/js/vendors/bootstrap.bundle.min',
-'sparkline': 'static/js/vendors/jquery.sparkline.min',
-'selectize': 'static/js/vendors/selectize.min',
-'tablesorter': 'static/js/vendors/jquery.tablesorter.min',
-'vector-map': 'static/js/vendors/jquery-jvectormap-2.0.3.min',
-'vector-map-de': 'static/js/vendors/jquery-jvectormap-de-merc',
-'vector-map-world': 'static/js/vendors/jquery-jvectormap-world-mill',
-'circle-progress': 'static/js/vendors/circle-progress.min',
-'jquery-datatable': 'static/js/vendors/jquery.dataTables.min',
-}
-});
+// require.config({
+// shim: {
+// 'bootstrap': ['jquery'],
+// 'sparkline': ['jquery'],
+// 'tablesorter': ['jquery'],
+// 'vector-map': ['jquery'],
+// 'vector-map-de': ['vector-map', 'jquery'],
+// 'vector-map-world': ['vector-map', 'jquery'],
+// 'jquery-datatable': ['jquery'],
+// 'core': ['bootstrap', 'jquery','circle-progress','jquery-datatable'],
+// },
+// paths: {
+// 'core': 'static/js/core',
+// 'jquery': 'static/js/vendors/jquery-3.2.1.min',
+// 'bootstrap': 'static/js/vendors/bootstrap.bundle.min',
+// 'sparkline': 'static/js/vendors/jquery.sparkline.min',
+// 'selectize': 'static/js/vendors/selectize.min',
+// 'tablesorter': 'static/js/vendors/jquery.tablesorter.min',
+// 'vector-map': 'static/js/vendors/jquery-jvectormap-2.0.3.min',
+// 'vector-map-de': 'static/js/vendors/jquery-jvectormap-de-merc',
+// 'vector-map-world': 'static/js/vendors/jquery-jvectormap-world-mill',
+// 'circle-progress': 'static/js/vendors/circle-progress.min',
+// 'jquery-datatable': 'static/js/vendors/jquery.dataTables.min',
+// }
+// });
 window.tabler = {
 colors: {
 'blue': '#467fcf',
@@ -125,4 +125,4 @@ colors: {
 'gray-dark-lightest': '#ebebec'
 }
 };
-require(['core']);
+// require(['core']);
